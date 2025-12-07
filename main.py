@@ -50,6 +50,7 @@ class Library:
         Library.data['books'].append(book)
         Library.save_data()
 
+
     def list_books(self):
         if not Library.data['books']:
             print("sorry no books found")
@@ -59,6 +60,22 @@ class Library:
 
         print()
 
+
+    def add_member(self):
+        name = input("Enter the name :- ")
+        email = input("please enter the email : ")
+
+        member = {
+            "id" : Library.gen_id("M"),
+            "name" : name,
+            "email": email,
+            "borowed": []
+        }
+
+        Library.data['members'].append(member)
+        Library.save_data()
+        print("Member added successfully")
+   
 
 book_obj = Library()
 
@@ -81,3 +98,6 @@ if choice == 1:
 
 elif choice == 2: 
     book_obj.list_books()
+
+elif choice == 3: 
+    book_obj.add_member()
