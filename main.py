@@ -1,3 +1,8 @@
+
+# -------------------------------------
+# CLI Based Library Management System
+# -------------------------------------
+
 import json
 import random
 import string
