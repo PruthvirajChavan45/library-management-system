@@ -1,3 +1,8 @@
+
+# -------------------------------------------------------------------
+# Library Management System - Python, OOP, CRUD Operations, Streamlit
+# -------------------------------------------------------------------
+
 import json
 import random
 import string
