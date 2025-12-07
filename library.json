@@ -1,0 +1,13 @@
+{
+    "books": [
+        {
+            "id": "B_SIG17",
+            "title": "Game of thrones",
+            "author": "Pruthviraj",
+            "total_copies": 30,
+            "available_copies": 30,
+            "added_on": "2025-12-07 16:29:55"
+        }
+    ],
+    "members": []
+}
