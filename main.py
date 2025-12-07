@@ -15,12 +15,9 @@ class Library:
             content = fs.read().strip()
             if content: 
                 data = json.loads(content)
-            else: 
-                with open(database, 'w') as fs: 
-                    json.dump(data,fs,indent=4)
-
-
-
+    else: 
+        with open(database, 'w') as fs: 
+            json.dump(data,fs,indent=4)
 
 
     def gen_id(Prefix = "B"): 
@@ -29,6 +26,13 @@ class Library:
             random_id += random.choice(string.ascii_uppercase + string.digits)
         return Prefix + "_" + random_id 
 
+
+    @classmethod
+    def save_data(cls):
+        with open(cls.database,'w') as f:
+            json.dump(cls.data,f,indent=4,default = str)
+
+    
     def add_book(self): 
         title = input("Enter Book Title : ")
         author = input("Enter The Bok Author : ")
@@ -43,7 +47,8 @@ class Library:
             "added_on" : datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
 
-        print(book)
+        Library.data['books'].append(book)
+        Library.save_data()
 
 
 book_obj = Library()
