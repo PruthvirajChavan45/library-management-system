@@ -61,7 +61,7 @@ class Library:
         print()
 
 
-    def add_member(self):
+    def add_members(self):
         name = input("Enter the name :- ")
         email = input("please enter the email : ")
 
@@ -76,6 +76,49 @@ class Library:
         Library.save_data()
         print("Member added successfully")
    
+
+    def list_members(self):
+        if not Library.data['members']:
+            print("there are no members")
+            return 
+        for m in Library.data['members']:
+            print(f"{m['id']:12} {m['name'][:24]:25} {m['email'][:29]:30}")
+            print("this guy has currently ")
+            print(f"{m['borowed']}")
+
+        print()
+
+
+    def borrow(self):
+        member_id = input("Enter the mermber ID : ").strip()
+        members = [m for m in Library.data['members'] if m['id'] == member_id]
+        if not members:
+            print("no such Id exist")
+            return 
+        member = members[0]
+
+        book_id = input("enter the book id : ")
+        books = [b for b in Library.data['books'] if b['id'] == book_id]
+
+        if not books:
+            print("soory no such id of book exist")
+            return 
+        book = books[0]
+    
+        if book['available_copies'] <= 0:
+            print("sorry no books exist")
+            return 
+        
+        borrow_entry = {
+            "book_id" :book['id'],
+            "title" : book['title'],
+            "borrow_on" : datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+
+        member['borowed'].append(borrow_entry)
+        book['available_copies'] -= 1 
+        Library.save_data()
+
 
 book_obj = Library()
 
@@ -100,4 +143,10 @@ elif choice == 2:
     book_obj.list_books()
 
 elif choice == 3: 
-    book_obj.add_member()
+    book_obj.add_members()
+
+elif choice == 4: 
+    book_obj.list_members()
+
+elif choice == 5:
+    book_obj.borrow()
