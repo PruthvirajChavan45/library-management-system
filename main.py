@@ -50,6 +50,15 @@ class Library:
         Library.data['books'].append(book)
         Library.save_data()
 
+    def list_books(self):
+        if not Library.data['books']:
+            print("sorry no books found")
+            return
+        for b in Library.data['books']:
+            print(f"{b['id']:12} {b['title'][:24]:25} {b['author'][:19]:20} {b['total_copies']} /{b['available_copies']:>3}")
+
+        print()
+
 
 book_obj = Library()
 
@@ -69,3 +78,6 @@ choice = int(input("What Task You Want To Do : "))
 
 if choice == 1: 
     book_obj.add_book()
+
+elif choice == 2: 
+    book_obj.list_books()
