@@ -69,7 +69,7 @@ class Library:
             "id" : Library.gen_id("M"),
             "name" : name,
             "email": email,
-            "borowed": []
+            "borrowed": []
         }
 
         Library.data['members'].append(member)
@@ -84,7 +84,7 @@ class Library:
         for m in Library.data['members']:
             print(f"{m['id']:12} {m['name'][:24]:25} {m['email'][:29]:30}")
             print("this guy has currently ")
-            print(f"{m['borowed']}")
+            print(f"{m['borrowed']}")
 
         print()
 
@@ -115,8 +115,38 @@ class Library:
             "borrow_on" : datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
 
-        member['borowed'].append(borrow_entry)
+        member['borrowed'].append(borrow_entry)
         book['available_copies'] -= 1 
+        Library.save_data()
+
+    
+    def return_book(self):
+        member_id = input("Enter the mermber ID : ").strip()
+        members = [m for m in Library.data['members'] if m['id'] == member_id]
+        if not members:
+            print("no such Id exist")
+            return 
+        
+        member = members[0]
+
+        if not member['borrowed']:
+            print("no borrowed books")
+            return 
+        
+        print("borrowed books")
+        for i, b in enumerate(member['borrowed'],start = 1):
+            print(f"{i}. {b['title']} ({b['book_id']})")
+        
+        try:
+            choice = int(input("enter number to return : - "))
+            selected = member['borrowed'].pop(choice - 1)
+        except Exception as err:
+            print("invalid value ")
+        
+        books = [bk for bk in Library.data['books'] if bk['id'] == selected['book_id'] ]
+        if books:
+            books[0]['available_copies'] += 1
+        
         Library.save_data()
 
 
@@ -150,3 +180,6 @@ elif choice == 4:
 
 elif choice == 5:
     book_obj.borrow()
+
+elif choice == 6: 
+    book_obj.return_book()
