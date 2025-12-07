@@ -152,34 +152,41 @@ class Library:
 
 book_obj = Library()
 
-print("="*50)
-print("Library Management System")
-print("="*50)
-print("1. Add Book")
-print("2. List Books")
-print("3. Add Members")
-print("4. List Members")
-print("5. Borrow Book")
-print("6. Return Book")
-print("0. Exit The Portal")
-print("-"*50)
+while True:
+    print("="*50)
+    print("Library Management System")
+    print("="*50)
+    print("1. Add Book")
+    print("2. List Books")
+    print("3. Add Members")
+    print("4. List Members")
+    print("5. Borrow Book")
+    print("6. Return Book")
+    print("0. Exit The Portal")
+    print("-"*50)
 
-choice = int(input("What Task You Want To Do : "))
+    choice = int(input("What Task You Want To Do : "))
 
-if choice == 1: 
-    book_obj.add_book()
+    if choice == 1: 
+        book_obj.add_book()
 
-elif choice == 2: 
-    book_obj.list_books()
+    elif choice == 2: 
+        book_obj.list_books()
 
-elif choice == 3: 
-    book_obj.add_members()
+    elif choice == 3: 
+        book_obj.add_members()
 
-elif choice == 4: 
-    book_obj.list_members()
+    elif choice == 4: 
+        book_obj.list_members()
 
-elif choice == 5:
-    book_obj.borrow()
+    elif choice == 5:
+        book_obj.borrow()
 
-elif choice == 6: 
-    book_obj.return_book()
+    elif choice == 6: 
+        book_obj.return_book()
+
+    elif choice == 0: 
+        break
+
+    else: 
+        print("Invalid Number Please Enter Valid Number")
