@@ -5,7 +5,7 @@
             "title": "Game of thrones",
             "author": "Pruthviraj",
             "total_copies": 30,
-            "available_copies": 30,
+            "available_copies": 29,
             "added_on": "2025-12-07 16:29:55"
         }
     ],
@@ -14,7 +14,13 @@
             "id": "M_2FVNV",
             "name": "Pruthviraj Chavan",
             "email": "pruthvirajchavan@gmail.com",
-            "borowed": []
+            "borowed": [
+                {
+                    "book_id": "B_SIG17",
+                    "title": "Game of thrones",
+                    "borrow_on": "2025-12-07 17:54:11"
+                }
+            ]
         }
     ]
 }
