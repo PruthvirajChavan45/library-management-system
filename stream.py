@@ -20,6 +20,17 @@ st.set_page_config(
     layout="wide"
 )
 
+# Center text inside tables & metrics
+st.markdown("""
+<style>
+thead tr th:first-child {text-align: center !important;}
+tbody td {text-align: center !important;}
+thead th {text-align: center !important;}
+.stMetric { text-align: center !important; }
+</style>
+""", unsafe_allow_html=True)
+
+
 DATABASE_PATH = Path("library.json")
 
 
