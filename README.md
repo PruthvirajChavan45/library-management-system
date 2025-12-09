@@ -1,6 +1,7 @@
 # 📚 Library Management System
 
 [![Streamlit App](https://img.shields.io/badge/🔗%20Live-Streamlit-blue?style=for-the-badge)](https://pruthviraj-library.streamlit.app)
+> ⏳ Note: The live demo may take few seconds to load because Streamlit free hosting puts the app to sleep when inactive.
 
 This project contains two interfaces:
 
