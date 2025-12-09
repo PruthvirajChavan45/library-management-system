@@ -1,5 +1,8 @@
 # 📚 Library Management System
 
+## 🚀 Live Demo (Streamlit App)
+🔗 https://pruthviraj-library.streamlit.app
+
 This project contains two interfaces:
 
 - **Terminal UI** → run `main.py`
@@ -124,6 +127,7 @@ Meaning:
 
 ---
 
-### 🧑‍💻 Author
+## 🧑‍💻 Author
 
-**Pruthviraj Chavan**
+**Pruthviraj Chavan**  
+🔗 Live Project: https://pruthviraj-library.streamlit.app
