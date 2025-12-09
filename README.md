@@ -1,7 +1,6 @@
 # 📚 Library Management System
 
-## 🚀 Live Demo (Streamlit App)
-🔗 https://pruthviraj-library.streamlit.app
+[![Streamlit App](https://img.shields.io/badge/🔗%20Live-Streamlit-blue?style=for-the-badge)](https://pruthviraj-library.streamlit.app/)
 
 This project contains two interfaces:
 
